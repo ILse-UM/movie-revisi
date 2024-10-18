@@ -1,4 +1,4 @@
-package com.um.bioskop.controller;
+package com.um.movie.controller;
 
 import com.um.movie.util.FileUtil;
 import javafx.fxml.FXML;
@@ -16,10 +16,7 @@ public class SignInController {
     private PasswordField password;
 
     @FXML
-    private Button login;
-
-    @FXML
-    public void handlelogin(){
+    public void handleLogin(){
         String username = this.username.getText();
         String password = this.password.getText();
 

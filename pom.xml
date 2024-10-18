@@ -27,11 +27,6 @@
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
-            <artifactId>javafx-web</artifactId>
-            <version>17.0.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
             <version>17.0.6</version>
         </dependency>
@@ -60,17 +55,6 @@
             <groupId>org.kordamp.bootstrapfx</groupId>
             <artifactId>bootstrapfx-core</artifactId>
             <version>0.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>eu.hansolo</groupId>
-            <artifactId>tilesfx</artifactId>
-            <version>21.0.3</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -106,7 +90,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.um.bioskop/com.um.bioskop.HelloApplication</mainClass>
+                            <mainClass>com.um.bioskop/com.um.movie.HelloApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

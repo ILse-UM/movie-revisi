@@ -1,6 +1,7 @@
-package com.um.bioskop.util;
+package com.um.movie.util;
 
 import com.um.movie.model.Movie;
+import com.um.movie.model.Ticket;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -42,8 +43,8 @@ public class FileUtil {
         String fileName = "movies_" + LocalDate.now() + ".txt";
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))){
             for(Movie movie : movies){
-                writer.write(movie.getId() + ";" + movie.getTitle() + ";" + movie.getGenre() + ";" +
-                        movie.getDuration() + ";" + movie.getShowingDate());
+                writer.write(movie.getTitle() + ";" + movie.getGenre() + ";" +
+                        movie.getDuration() + ";" + movie.getShowingDate() + ";" + movie.getImage());
                 writer.newLine();
             }
         } catch (IOException e) {
@@ -61,11 +62,11 @@ public class FileUtil {
                 String[] split = line.split(";");
                 if(split.length == 5){
                     Movie movie = new Movie(
-                            Integer.parseInt(split[0]),
+                            split[0],
                             split[1],
-                            split[2],
-                            Integer.parseInt(split[3]),
-                            LocalDate.parse(split[4], formatter)
+                            Integer.parseInt(split[2]),
+                            LocalDate.parse(split[3], formatter),
+                            split[4]
                     );
                     movies.add(movie);
                 }
@@ -74,5 +75,41 @@ public class FileUtil {
             e.printStackTrace();
         }
         return movies;
+    }
+
+
+    // menyimpan data tiket ke file
+    public static void saveTicketToFile(String ticketNum, String title, double total, String date, String time) {
+        String filePath = "database/tickets.txt"; // Nama file untuk menyimpan data
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write(ticketNum + "," + title + "," + total + "," + date + "," + time);
+            writer.newLine(); // Tambah baris baru setelah setiap entri
+            System.out.println("Data saved to file: " + filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Ticket> loadTicketsFromFile() {
+        List<Ticket> tickets = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("database/tickets.txt"))) {
+            String line;
+            // Skip header line
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                String ticketNum = values[0];
+                String title = values[1];
+                double total = Double.parseDouble(values[2]);
+                String date = values[3];
+                String time = values[4];
+
+                Ticket ticket = new Ticket(ticketNum, title, total, date, time);
+                tickets.add(ticket);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return tickets;
     }
 }

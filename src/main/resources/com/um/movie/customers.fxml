@@ -14,8 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.movie.controller.CustomerController">
    <children>
       <BorderPane layoutX="-9.0" layoutY="-6.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -57,8 +56,8 @@
                         </DropShadow>
                      </effect>
                   </Rectangle>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="228.0" layoutX="26.0" layoutY="26.0" stroke="RED" strokeType="INSIDE" width="218.0" />
-                  <TextField layoutX="122.0" layoutY="49.0" prefHeight="25.0" prefWidth="106.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="228.0" layoutX="26.0" layoutY="26.0" stroke="#ff6f6f" strokeType="INSIDE" width="218.0" />
+                  <TextField fx:id="ticketNumTextField" layoutX="122.0" layoutY="49.0" prefHeight="25.0" prefWidth="106.0">
                      <effect>
                         <DropShadow>
                            <color>
@@ -67,8 +66,8 @@
                         </DropShadow>
                      </effect>
                   </TextField>
-                  <Text layoutX="75.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticket#:" />
-                  <TextField layoutX="122.0" layoutY="83.0" prefHeight="25.0" prefWidth="106.0">
+                  <Text layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticket#" textAlignment="RIGHT" wrappingWidth="96.04296875" />
+                  <TextField fx:id="titleTextField" layoutX="122.0" layoutY="83.0" prefHeight="25.0" prefWidth="106.0">
                      <effect>
                         <DropShadow>
                            <color>
@@ -77,7 +76,7 @@
                         </DropShadow>
                      </effect>
                   </TextField>
-                  <TextField layoutX="122.0" layoutY="117.0" prefHeight="25.0" prefWidth="106.0">
+                  <TextField fx:id="totalTextField" layoutX="122.0" layoutY="117.0" prefHeight="25.0" prefWidth="106.0">
                      <effect>
                         <DropShadow>
                            <color>
@@ -86,7 +85,7 @@
                         </DropShadow>
                      </effect>
                   </TextField>
-                  <TextField layoutX="122.0" layoutY="153.0" prefHeight="25.0" prefWidth="106.0">
+                  <TextField fx:id="dateTextField" layoutX="122.0" layoutY="153.0" prefHeight="25.0" prefWidth="106.0">
                      <effect>
                         <DropShadow>
                            <color>
@@ -95,7 +94,7 @@
                         </DropShadow>
                      </effect>
                   </TextField>
-                  <TextField layoutX="122.0" layoutY="188.0" prefHeight="25.0" prefWidth="106.0">
+                  <TextField fx:id="timeTextField" layoutX="122.0" layoutY="188.0" prefHeight="25.0" prefWidth="106.0">
                      <effect>
                         <DropShadow>
                            <color>
@@ -104,27 +103,23 @@
                         </DropShadow>
                      </effect>
                   </TextField>
-                  <Text layoutX="46.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movie Ticket:" />
-                  <Text layoutX="36.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Payment:" />
-                  <Text layoutX="37.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Checked:" />
-                  <Text layoutX="31.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Checked:" />
-                  <Button layoutX="26.0" layoutY="316.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: aqua;" text="Clear">
+                  <Button layoutX="36.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: #77CDFF;" text="Clear">
                      <font>
                         <Font name="Microsoft Sans Serif" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="166.0" layoutY="316.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: red;" text="Delete">
+                  <Button layoutX="150.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: #F95454;" text="Delete">
                      <font>
                         <Font name="Microsoft Sans Serif" size="18.0" />
                      </font>
                   </Button>
-                  <TableView layoutX="290.0" layoutY="88.0" prefHeight="438.0" prefWidth="480.0">
+                  <TableView fx:id="tableView" layoutX="290.0" layoutY="88.0" prefHeight="438.0" prefWidth="480.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Ticket" />
-                      <TableColumn prefWidth="75.0" text="Movie Ticker" />
-                        <TableColumn prefWidth="75.0" text="Total Payment" />
-                        <TableColumn prefWidth="75.0" text="Data Checked" />
-                        <TableColumn prefWidth="75.0" text="Time Checked" />
+                      <TableColumn fx:id="ticketNumColumn" prefWidth="75.0" text="Ticket" />
+                      <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Movie Title" />
+                        <TableColumn fx:id="totalColumn" prefWidth="75.0" text="Total Payment" />
+                        <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date Checked" />
+                        <TableColumn fx:id="timeColumn" prefWidth="75.0" text="Time Checked" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -133,7 +128,7 @@
                         <Insets />
                      </opaqueInsets>
                   </TableView>
-                  <TextField layoutX="290.0" layoutY="37.0" promptText="Search">
+                  <TextField fx:id="search" layoutX="290.0" layoutY="37.0" onAction="#handleSearch" promptText="Search">
                      <effect>
                         <DropShadow>
                            <color>
@@ -142,6 +137,10 @@
                         </DropShadow>
                      </effect>
                   </TextField>
+                  <Text layoutX="14.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movie Title" textAlignment="RIGHT" wrappingWidth="96.04296875" />
+                  <Text layoutX="14.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Payment" textAlignment="RIGHT" wrappingWidth="96.04296875" />
+                  <Text layoutX="14.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Checked" textAlignment="RIGHT" wrappingWidth="96.04296875" />
+                  <Text layoutX="14.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Checked" textAlignment="RIGHT" wrappingWidth="96.04296875" />
                </children>
             </AnchorPane>
          </center>

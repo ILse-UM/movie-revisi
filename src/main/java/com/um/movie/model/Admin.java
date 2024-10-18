@@ -1,4 +1,4 @@
-package com.um.bioskop.model;
+package com.um.movie.model;
 
 import com.um.movie.abstracts.Account;
 

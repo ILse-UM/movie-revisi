@@ -1,4 +1,4 @@
-package com.um.bioskop.abstracts;
+package com.um.movie.abstracts;
 
 public abstract class Account {
     private String username;
