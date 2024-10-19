@@ -1,108 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.movie.controller.ScreenController">
-    <children>
-        <BorderPane layoutX="-9.0" layoutY="-6.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <top>
-                <AnchorPane prefHeight="44.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <AnchorPane layoutX="73.0" layoutY="-70.0" prefHeight="38.0" prefWidth="1000.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                    </children>
-                </AnchorPane>
-            </top>
-            <left>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-            </left>
-            <center>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffffee" height="528.0" layoutX="14.0" layoutY="14.0" stroke="#0000002f" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="241.0">
-                            <effect>
-                                <DropShadow>
-                                    <color>
-                                        <Color opacity="0.39312976598739624" />
-                                    </color>
-                                </DropShadow>
-                            </effect>
-                        </Rectangle>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="527.0" layoutX="272.0" layoutY="14.0" stroke="#00000033" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="513.0">
-                            <effect>
-                                <DropShadow>
-                                    <color>
-                                        <Color opacity="0.38999998569488525" />
-                                    </color>
-                                </DropShadow>
-                            </effect>
-                        </Rectangle>
-                        <TableView fx:id="tableView" layoutX="290.0" layoutY="88.0" prefHeight="438.0" prefWidth="480.0">
-                            <columns>
-                                <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Movie Title" />
-                                <TableColumn fx:id="genreColumn" prefWidth="75.0" text="Genre" />
-                                <TableColumn fx:id="durationColumn" prefWidth="75.0" text="Duration" />
-                                <TableColumn fx:id="currentColumn" prefWidth="75.0" text="Current" />
-                            </columns>
-                            <opaqueInsets>
-                                <Insets />
-                            </opaqueInsets>
-                            <columnResizePolicy>
-                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                            </columnResizePolicy>
-                        </TableView>
-                        <TextField fx:id="search" layoutX="290.0" layoutY="37.0" onAction="#handleSearch" promptText="Search">
-                            <effect>
-                                <DropShadow>
-                                    <color>
-                                        <Color opacity="0.5229007601737976" />
-                                    </color>
-                                </DropShadow>
-                            </effect>
-                        </TextField>
-                        <ImageView fx:id="image" fitHeight="200.0" fitWidth="172.0" layoutX="50.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="titleLabel" layoutX="123.0" layoutY="257.0" text="Title" />
-                        <ComboBox fx:id="boxLabel" layoutX="102.0" layoutY="296.0" onAction="#handleBox" prefHeight="25.0" prefWidth="136.0" promptText="Choose">
-                            <items>
-                                <FXCollections fx:factory="observableArrayList">
-                                    <String fx:value="Showing" />
-                                    <String fx:value="End Showing" />
-                                </FXCollections>
-                            </items>
-                        </ComboBox>
-                        <Text layoutX="39.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current">
-                            <font>
-                                <Font name="Microsoft Sans Serif" size="12.0" />
-                            </font>
-                        </Text>
-                        <Button fx:id="updateButton" layoutX="31.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="50.0" prefWidth="87.0" style="-fx-background-color: lightblue;" text="Update">
-                            <font>
-                                <Font name="Microsoft Sans Serif" size="18.0" />
-                            </font>
-                        </Button>
-                        <Button fx:id="clearButton" layoutX="152.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="50.0" prefWidth="87.0" style="-fx-background-color: aqua;" text="Clear">
-                            <font>
-                                <Font name="Microsoft Sans Serif" size="18.0" />
-                            </font>
-                        </Button>
-                    </children>
-                </AnchorPane>
-            </center>
-        </BorderPane>
-    </children>
-</AnchorPane>
+<SplitPane dividerPositions="0.22867892976588633, 0.4795150501672241" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23">
+  <items>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <ImageView fx:id="image" fitHeight="100.0" fitWidth="100.0" layoutX="38.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="55.0" layoutY="114.0" text="Welcome">
+               <font>
+                  <Font name="Dubai Medium" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="61.0" layoutY="134.0" text="admin">
+               <font>
+                  <Font name="Dutch 801 Bold BT" size="19.0" />
+               </font>
+            </Label>
+            <VBox layoutX="1.0" layoutY="164.0">
+               <children>
+                  <ToggleButton fx:id="dashboardButton" mnemonicParsing="false" onAction="#handleDashBoard" prefHeight="31.0" prefWidth="175.0" text=" DashBoard">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="menu" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton fx:id="moviesButton" mnemonicParsing="false" onAction="#handleMovies" prefHeight="31.0" prefWidth="175.0" text="Movies" toggleGroup="$menu" />
+                  <ToggleButton fx:id="availableButton" mnemonicParsing="false" onAction="#handleAvailable" prefHeight="31.0" prefWidth="175.0" text="Available Movies" textFill="WHITE" toggleGroup="$menu" />
+                  <ToggleButton fx:id="screenButton" mnemonicParsing="false" onAction="#handleScreen" prefHeight="31.0" prefWidth="175.0" text="Edit Screening" toggleGroup="$menu" />
+                  <ToggleButton fx:id="customerButton" layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#handleCustomer" prefHeight="31.0" prefWidth="175.0" text="Customers" toggleGroup="$menu" />
+               </children>
+            </VBox>
+            <Button layoutX="12.0" layoutY="351.0" mnemonicParsing="false" text="Sign Out" />
+         </children>
+      </AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <ImageView fx:id="image1" fitHeight="168.0" fitWidth="164.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="titleLabel" layoutX="84.0" layoutY="182.0" text="Title" />
+            <ComboBox fx:id="boxLabel" editable="true" layoutX="72.0" layoutY="217.0" onAction="#handleBox" prefHeight="25.0" prefWidth="110.0" promptText="Choose">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Showing" />
+                     <String fx:value="End Showing" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <Text layoutX="14.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="12.0" />
+               </font>
+            </Text>
+            <Button fx:id="updateButton" layoutX="21.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="23.0" prefWidth="66.0" style="-fx-background-color: lightblue;" text="Update">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="clearButton" layoutX="107.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="23.0" prefWidth="66.0" style="-fx-background-color: aqua;" text="Clear">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="12.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <TextField fx:id="search" layoutX="14.0" layoutY="14.0" onAction="#handleSearch" promptText="Search">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.5229007601737976" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </TextField>
+            <TableView fx:id="tableView" layoutX="10.0" layoutY="65.0" prefHeight="317.0" prefWidth="392.0">
+               <columns>
+                  <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Movie Title" />
+                  <TableColumn fx:id="genreColumn" prefWidth="100.66670989990234" text="Genre" />
+                  <TableColumn fx:id="durationColumn" prefWidth="93.99995422363281" text="Duration" />
+                  <TableColumn fx:id="currentColumn" prefWidth="75.0" text="Current" />
+               </columns>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </AnchorPane>
+  </items>
+</SplitPane>
