@@ -19,41 +19,44 @@
 
 <SplitPane dividerPositions="0.22742474916387964, 0.5346989966555185" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.movie.controller.CustomerController">
   <items>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
          <children>
             <ImageView fx:id="image" fitHeight="100.0" fitWidth="100.0" layoutX="38.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="55.0" layoutY="114.0" text="Welcome">
+            <Label layoutX="56.0" layoutY="118.0" text="Welcome">
                <font>
                   <Font name="Dubai Medium" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="61.0" layoutY="134.0" text="admin">
+            <Label layoutX="61.0" layoutY="134.0" text="Admin">
                <font>
-                  <Font name="Dutch 801 Bold BT" size="19.0" />
+                  <Font name="Dubai Medium" size="19.0" />
                </font>
             </Label>
-            <VBox layoutX="1.0" layoutY="164.0">
+            <VBox layoutX="1.0" layoutY="169.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
                <children>
-                  <ToggleButton fx:id="dashboardButton" mnemonicParsing="false" onAction="#handleDashBoard" prefHeight="31.0" prefWidth="175.0" text=" DashBoard">
+                  <ToggleButton fx:id="dashboardButton" mnemonicParsing="false" onAction="#handleDashBoard" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text=" DashBoard">
                      <toggleGroup>
                         <ToggleGroup fx:id="menu" />
                      </toggleGroup>
                   </ToggleButton>
-                  <ToggleButton fx:id="moviesButton" mnemonicParsing="false" onAction="#handleMovies" prefHeight="31.0" prefWidth="175.0" text="Movies" toggleGroup="$menu" />
-                  <ToggleButton fx:id="availableButton" mnemonicParsing="false" onAction="#handleAvailable" prefHeight="31.0" prefWidth="175.0" text="Available Movies" textFill="WHITE" toggleGroup="$menu" />
-                  <ToggleButton fx:id="screenButton" mnemonicParsing="false" onAction="#handleScreen" prefHeight="31.0" prefWidth="175.0" text="Edit Screening" toggleGroup="$menu" />
-                  <ToggleButton fx:id="customerButton" layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#handleCustomer" prefHeight="31.0" prefWidth="175.0" text="Customers" toggleGroup="$menu" />
+                  <ToggleButton fx:id="moviesButton" mnemonicParsing="false" onAction="#handleMovies" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text="Movies" toggleGroup="$menu" />
+                  <ToggleButton fx:id="availableButton" mnemonicParsing="false" onAction="#handleAvailable" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text="Available Movies" toggleGroup="$menu" />
+                  <ToggleButton fx:id="screenButton" mnemonicParsing="false" onAction="#handleScreen" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text="Edit Screening" toggleGroup="$menu" />
+                  <ToggleButton fx:id="customerButton" layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#handleCustomer" prefHeight="31.0" prefWidth="175.0" selected="true" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text="Customers" toggleGroup="$menu" />
                </children>
             </VBox>
-            <Button layoutX="12.0" layoutY="351.0" mnemonicParsing="false" text="Sign Out" />
+            <Button layoutX="12.0" layoutY="351.0" mnemonicParsing="false" style="-fx-background-color: #a3c1e0; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Sign Out">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect></Button>
          </children>
       </AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="221.0" layoutX="12.0" layoutY="14.0" stroke="#ff6f6f" strokeType="INSIDE" width="216.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="221.0" layoutX="12.0" layoutY="14.0" stroke="#f5b7b1" strokeType="INSIDE" width="216.0" />
             <TextField fx:id="ticketNumTextField" layoutX="107.0" layoutY="37.0" prefHeight="25.0" prefWidth="106.0">
                <effect>
-                  <DropShadow>
+                  <DropShadow height="5.0" radius="2.0" width="5.0">
                      <color>
                         <Color opacity="0.39312976598739624" />
                      </color>
@@ -62,7 +65,7 @@
             </TextField>
             <TextField fx:id="titleTextField" layoutX="107.0" layoutY="71.0" prefHeight="25.0" prefWidth="106.0">
                <effect>
-                  <DropShadow>
+                  <DropShadow height="5.0" radius="2.0" width="5.0">
                      <color>
                         <Color opacity="0.38999998569488525" />
                      </color>
@@ -71,7 +74,7 @@
             </TextField>
             <TextField fx:id="totalTextField" layoutX="107.0" layoutY="103.0" prefHeight="25.0" prefWidth="106.0">
                <effect>
-                  <DropShadow>
+                  <DropShadow height="5.0" radius="2.0" width="5.0">
                      <color>
                         <Color opacity="0.38999998569488525" />
                      </color>
@@ -80,7 +83,7 @@
             </TextField>
             <TextField fx:id="dateTextField" layoutX="107.0" layoutY="140.0" prefHeight="25.0" prefWidth="106.0">
                <effect>
-                  <DropShadow>
+                  <DropShadow height="5.0" radius="2.0" width="5.0">
                      <color>
                         <Color opacity="0.38999998569488525" />
                      </color>
@@ -89,33 +92,54 @@
             </TextField>
             <TextField fx:id="timeTextField" layoutX="107.0" layoutY="172.0" prefHeight="25.0" prefWidth="106.0">
                <effect>
-                  <DropShadow>
+                  <DropShadow height="5.0" radius="2.0" width="5.0">
                      <color>
                         <Color opacity="0.38999998569488525" />
                      </color>
                   </DropShadow>
                </effect>
             </TextField>
-            <Text layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticket#" textAlignment="RIGHT" wrappingWidth="96.04296875" />
-            <Text layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movie Title" textAlignment="RIGHT" wrappingWidth="96.04296875" />
-            <Text layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Payment" textAlignment="RIGHT" wrappingWidth="96.04296875" />
-            <Text layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Checked" textAlignment="RIGHT" wrappingWidth="96.04296875" />
-            <Text layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Checked" textAlignment="RIGHT" wrappingWidth="96.04296875" />
-            <Button layoutX="29.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: #77CDFF;" text="Clear">
+            <Text layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticket#" textAlignment="RIGHT" wrappingWidth="96.04296875">
                <font>
-                  <Font name="Microsoft Sans Serif" size="18.0" />
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font></Text>
+            <Text layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movie Title" textAlignment="RIGHT" wrappingWidth="96.04296875">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font></Text>
+            <Text layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Payment" textAlignment="RIGHT" wrappingWidth="96.04296875">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font></Text>
+            <Text layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Checked" textAlignment="RIGHT" wrappingWidth="96.04296875">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font></Text>
+            <Text layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Checked" textAlignment="RIGHT" wrappingWidth="96.04296875">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font></Text>
+            <Button layoutX="41.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #77CDFF;" text="Clear">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect>
             </Button>
-            <Button layoutX="135.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="43.0" prefWidth="78.0" style="-fx-background-color: #F95454;" text="Delete">
+            <Button layoutX="135.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #F95454;" text="Delete">
                <font>
-                  <Font name="Microsoft Sans Serif" size="18.0" />
+                  <Font name="Microsoft Sans Serif" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect>
             </Button>
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
          <children>
             <TextField fx:id="search" layoutX="7.0" layoutY="31.0" onAction="#handleSearch" prefHeight="25.0" prefWidth="125.0" promptText="search" />
-            <TableView fx:id="tableView" layoutX="7.0" layoutY="76.0" prefHeight="311.0" prefWidth="352.0">
+            <TableView fx:id="tableView" layoutX="7.0" layoutY="76.0" prefHeight="316.0" prefWidth="356.0">
               <columns>
                 <TableColumn fx:id="ticketNumColumn" prefWidth="75.0" text="Ticket" />
                 <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Movie Title" />
