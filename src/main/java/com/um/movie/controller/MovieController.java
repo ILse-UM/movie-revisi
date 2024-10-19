@@ -1,5 +1,6 @@
 package com.um.movie.controller;
 
+import com.um.movie.MovieApplication;
 import com.um.movie.model.Movie;
 import com.um.movie.util.FileUtil;
 import javafx.beans.property.SimpleStringProperty;
@@ -7,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,7 +23,7 @@ public class MovieController {
     private TextField movieTitle, genre, duration, publishedDate, search;
 
     @FXML
-    private ImageView image;
+    private ImageView image, titleImage;
 
     @FXML
     private Button importButton, insertButton, updateButton, deleteButton, clearButton;
@@ -45,6 +47,22 @@ public class MovieController {
         // Load data from file
         movieList = FXCollections.observableArrayList(FileUtil.loadMoviesFromFile());
         tableView.setItems(movieList);
+
+        // Listener for row selection
+        tableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> handleRowClick());
+    }
+
+    @FXML
+    public void handleRowClick() {
+        Movie selectedMovie = tableView.getSelectionModel().getSelectedItem();
+        if (selectedMovie != null) {
+            // Fill TextFields with the selected movie's data
+            movieTitle.setText(selectedMovie.getTitle());
+            genre.setText(selectedMovie.getGenre());
+            duration.setText(String.valueOf(selectedMovie.getDuration()));
+            publishedDate.setText(selectedMovie.getShowingDate().toString());
+            titleImage.setImage(new Image(selectedMovie.getImage()));
+        }
     }
 
     @FXML
@@ -55,7 +73,7 @@ public class MovieController {
                     genre.getText(),
                     Integer.parseInt(duration.getText()),
                     LocalDate.parse(publishedDate.getText()),
-                    image.getImage().getUrl()
+                    titleImage.getImage().getUrl()
             );
             movieList.add(movie);
             FileUtil.saveMoviesToFile(movieList);
@@ -73,7 +91,7 @@ public class MovieController {
             selectedMovie.setGenre(genre.getText());
             selectedMovie.setDuration(Integer.parseInt(duration.getText()));
             selectedMovie.setShowingDate(LocalDate.parse(publishedDate.getText()));
-            selectedMovie.setImage(image.getImage().getUrl());
+            selectedMovie.setImage(titleImage.getImage().getUrl());
 
             tableView.refresh();
             FileUtil.saveMoviesToFile(movieList);
@@ -104,21 +122,25 @@ public class MovieController {
     private void handleImport(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(null);
-        if (file != null) {
-            image.setImage(new Image(file.toURI().toString()));
+        if (file != null && file.getName().matches(".*\\.(png|jpg|jpeg|gif)$")) {
+            titleImage.setImage(new Image(file.toURI().toString()));
         }
     }
 
     @FXML
-    public void handleSearch(){
+    public void handleSearch() {
         String searchText = search.getText().toLowerCase();
         ObservableList<Movie> filteredList = FXCollections.observableArrayList();
 
         for (Movie movie : movieList) {
-            if (movie.getTitle().toLowerCase().contains(searchText)) {
+            if (movie.getTitle().toLowerCase().contains(searchText) ||
+                    movie.getGenre().toLowerCase().contains(searchText) ||
+                    String.valueOf(movie.getDuration()).contains(searchText) ||
+                    movie.getShowingDate().toString().contains(searchText)) {
                 filteredList.add(movie);
             }
         }
+
 
         tableView.setItems(filteredList);
     }
@@ -128,7 +150,7 @@ public class MovieController {
         genre.clear();
         duration.clear();
         publishedDate.clear();
-        image.setImage(null);
+        titleImage.setImage(null);
     }
 
     private void showAlert(String title, String message, Alert.AlertType alertType) {
@@ -136,5 +158,37 @@ public class MovieController {
         alert.setTitle(title);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+
+    // method dibawah ini merupakan penerapan dari tombol navigasi sebelah kiri
+    @FXML
+    private void handleDashBoard(ActionEvent event) {
+        // Implementasi untuk dashboard button action
+        MovieApplication.switchScene((Node) event.getSource(), "dashboard.fxml");
+    }
+
+    @FXML
+    private void handleMovies(ActionEvent event) {
+        // Implementasi untuk movies button action
+        MovieApplication.switchScene((Node) event.getSource(), "add.fxml");
+    }
+
+    @FXML
+    private void handleAvailable(ActionEvent event) {
+        // Implementasi untuk available movies button action
+        MovieApplication.switchScene((Node) event.getSource(), "availableMovie.fxml");
+    }
+
+    @FXML
+    private void handleScreen(ActionEvent event) {
+        // Implementasi untuk edit screening button action
+        MovieApplication.switchScene((Node) event.getSource(), "editscreening.fxml");
+    }
+
+    @FXML
+    private void handleCustomer(ActionEvent event) {
+        // Implementasi untuk customers button action
+        MovieApplication.switchScene((Node) event.getSource(), "customers.fxml");
     }
 }

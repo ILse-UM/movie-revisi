@@ -1,11 +1,13 @@
 package com.um.movie.controller;
 
+import com.um.movie.MovieApplication;
 import com.um.movie.util.FileUtil;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -169,6 +171,38 @@ public class AvailableController {
         normalPrice.setText("$" + (normalCount * normalTicketPrice));
         specialPrice.setText("$" + (specialCount * specialTicketPrice));
         totalPrice.setText("$" + total);
+    }
+
+
+    // method dibawah ini merupakan penerapan dari tombol navigasi sebelah kiri
+    @FXML
+    private void handleDashBoard(ActionEvent event) {
+        // Implementasi untuk dashboard button action
+        MovieApplication.switchScene((Node) event.getSource(), "dashboard.fxml");
+    }
+
+    @FXML
+    private void handleMovies(ActionEvent event) {
+        // Implementasi untuk movies button action
+        MovieApplication.switchScene((Node) event.getSource(), "add.fxml");
+    }
+
+    @FXML
+    private void handleAvailable(ActionEvent event) {
+        // Implementasi untuk available movies button action
+        MovieApplication.switchScene((Node) event.getSource(), "availableMovie.fxml");
+    }
+
+    @FXML
+    private void handleScreen(ActionEvent event) {
+        // Implementasi untuk edit screening button action
+        MovieApplication.switchScene((Node) event.getSource(), "editscreening.fxml");
+    }
+
+    @FXML
+    private void handleCustomer(ActionEvent event) {
+        // Implementasi untuk customers button action
+        MovieApplication.switchScene((Node) event.getSource(), "customers.fxml");
     }
 
 

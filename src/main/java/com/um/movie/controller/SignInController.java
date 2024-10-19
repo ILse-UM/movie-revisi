@@ -1,5 +1,6 @@
 package com.um.movie.controller;
 
+import com.um.movie.MovieApplication;
 import com.um.movie.util.FileUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -16,15 +17,23 @@ public class SignInController {
     private PasswordField password;
 
     @FXML
-    public void handleLogin(){
-        String username = this.username.getText();
-        String password = this.password.getText();
+    private Button loginButton;
 
-        if(FileUtil.verifyLogin(username, password)){
+    @FXML
+    private void initialize() {
+        FileUtil.loadAdmins();
+    }
 
-            System.out.println("login berhasil, masuk ke dalam sistem");
+    @FXML
+    public void handleLogin() {
+        String usernameText = this.username.getText();
+        String passwordText = this.password.getText();
 
-            //to-do pindah scene ke dashboard
+        if (FileUtil.verifyLogin(usernameText, passwordText)) {
+            System.out.println("Login berhasil, masuk ke dalam sistem");
+
+            // Pindah scene ke dashboard
+            MovieApplication.switchScene(loginButton, "dashboard.fxml");
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

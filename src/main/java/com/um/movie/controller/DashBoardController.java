@@ -1,6 +1,7 @@
 package com.um.movie.controller;
 
 import com.um.movie.MovieApplication;
+import com.um.movie.model.Movie;
 import com.um.movie.model.Ticket;
 import com.um.movie.util.FileUtil;
 import javafx.animation.KeyFrame;
@@ -15,6 +16,7 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DashBoardController {
 
@@ -70,12 +72,10 @@ public class DashBoardController {
 
     private List<String> loadImagePaths() {
         // Daftar path gambar yang akan digunakan di carousel, bisa diambil dari file atau resource
-        List<String> paths = new ArrayList<>();
-        paths.add("file:/path/to/image1.jpg");
-        paths.add("file:/path/to/image2.jpg");
-        paths.add("file:/path/to/image3.jpg");
-        // Tambahkan path gambar lainnya
-        return paths;
+        List<String> imagePaths = FileUtil.loadMoviesFromFile().stream()
+                        .map(Movie::getImage)
+                                .collect(Collectors.toList());
+        return imagePaths;
     }
 
     private void updateCarouselImage() {
@@ -98,13 +98,9 @@ public class DashBoardController {
         carouselTimeline.play();
     }
 
-    public void stopCarousel() {
-        if (carouselTimeline != null) {
-            carouselTimeline.stop();
-        }
-    }
 
 
+    // method dibawah ini merupakan penerapan dari tombol navigasi sebelah kiri
     @FXML
     private void handleDashBoard(ActionEvent event) {
         // Implementasi untuk dashboard button action
@@ -132,6 +128,13 @@ public class DashBoardController {
     @FXML
     private void handleCustomer(ActionEvent event) {
         // Implementasi untuk customers button action
-        MovieApplication.switchScene((Node) event.getSource(), "customer.fxml");
+        MovieApplication.switchScene((Node) event.getSource(), "customers.fxml");
     }
+
+    @FXML
+    private void handleSignOut(ActionEvent event) {
+        // Implementasi untuk sign out, misalnya kembali ke halaman login
+        MovieApplication.switchScene((Node) event.getSource(), "login.fxml");
+    }
+
 }

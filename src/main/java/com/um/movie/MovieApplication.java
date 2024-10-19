@@ -1,8 +1,6 @@
 package com.um.movie;
 
-import com.sun.tools.javac.Main;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -23,7 +21,7 @@ public class MovieApplication extends Application {
 
     public static void switchScene(Node source, String fxmlFile) {
         try {
-            Parent root = FXMLLoader.load(Main.class.getResource(fxmlFile));
+            Parent root = FXMLLoader.load(MovieApplication.class.getResource(fxmlFile));
             Stage stage = (Stage) source.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);

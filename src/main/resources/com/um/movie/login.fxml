@@ -9,16 +9,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.movie.controller.SignInController">
    <children>
-      <AnchorPane id="anchorpane_signin" layoutX="81.0" layoutY="54.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="81.0" layoutY="54.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="259.0" layoutY="104.0" text="Sign In">
                <font>
                   <Font name="Berlin Sans FB" size="30.0" />
                </font>
             </Label>
-            <TextField id="username" fx:id="username" layoutX="200.0" layoutY="162.0" prefHeight="30.0" prefWidth="200.0" promptText="Username" />
-            <PasswordField id="password" fx:id="password" layoutX="200.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" />
-            <Button id="login" layoutX="248.0" layoutY="248.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="43.0" prefWidth="103.0" text="Login">
+            <TextField fx:id="username" layoutX="200.0" layoutY="162.0" prefHeight="30.0" prefWidth="200.0" promptText="Username" />
+            <PasswordField fx:id="password" layoutX="200.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" />
+            <Button fx:id="loginButton" layoutX="248.0" layoutY="248.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="43.0" prefWidth="103.0" text="Login">
                <font>
                   <Font name="Microsoft Sans Serif" size="12.0" />
                </font>

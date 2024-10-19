@@ -1,5 +1,6 @@
 package com.um.movie.controller;
 
+import com.um.movie.MovieApplication;
 import com.um.movie.model.Movie;
 import com.um.movie.util.FileUtil;
 import javafx.beans.property.SimpleStringProperty;
@@ -7,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,7 +23,7 @@ public class ScreenController {
     private TextField movieTitle, genre, duration, publishedDate, search;
 
     @FXML
-    private ImageView image;
+    private ImageView image, titleImage;
 
     @FXML
     private Button importButton, insertButton, updateButton, deleteButton, clearButton;
@@ -64,7 +66,7 @@ public class ScreenController {
         genre.setText(movie.getGenre());
         duration.setText(String.valueOf(movie.getDuration()));
         publishedDate.setText(movie.getShowingDate().toString());
-        image.setImage(new Image(movie.getImage()));
+        titleImage.setImage(new Image(movie.getImage()));
         boxLabel.setValue(movie.getCurrent()); // Set ComboBox to the current status of the movie
     }
 
@@ -89,7 +91,7 @@ public class ScreenController {
             selectedMovie.setGenre(genre.getText());
             selectedMovie.setDuration(Integer.parseInt(duration.getText()));
             selectedMovie.setShowingDate(LocalDate.parse(publishedDate.getText()));
-            selectedMovie.setImage(image.getImage().getUrl());
+            selectedMovie.setImage(titleImage.getImage().getUrl());
             selectedMovie.setCurrent(boxLabel.getValue()); // Update the current property based on ComboBox value
 
             tableView.refresh();
@@ -116,7 +118,11 @@ public class ScreenController {
             }
         }
 
-        tableView.setItems(filteredList);
+        if (searchText.isEmpty()) {
+            tableView.setItems(movieList);
+        } else {
+            tableView.setItems(filteredList);
+        }
     }
 
     private void clearFields() {
@@ -124,7 +130,7 @@ public class ScreenController {
         genre.clear();
         duration.clear();
         publishedDate.clear();
-        image.setImage(null);
+        titleImage.setImage(null);
         boxLabel.setValue(null); // Clear ComboBox selection
     }
 
@@ -133,5 +139,37 @@ public class ScreenController {
         alert.setTitle(title);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+
+    // method dibawah ini merupakan penerapan dari tombol navigasi sebelah kiri
+    @FXML
+    private void handleDashBoard(ActionEvent event) {
+        // Implementasi untuk dashboard button action
+        MovieApplication.switchScene((Node) event.getSource(), "dashboard.fxml");
+    }
+
+    @FXML
+    private void handleMovies(ActionEvent event) {
+        // Implementasi untuk movies button action
+        MovieApplication.switchScene((Node) event.getSource(), "add.fxml");
+    }
+
+    @FXML
+    private void handleAvailable(ActionEvent event) {
+        // Implementasi untuk available movies button action
+        MovieApplication.switchScene((Node) event.getSource(), "availableMovie.fxml");
+    }
+
+    @FXML
+    private void handleScreen(ActionEvent event) {
+        // Implementasi untuk edit screening button action
+        MovieApplication.switchScene((Node) event.getSource(), "editscreening.fxml");
+    }
+
+    @FXML
+    private void handleCustomer(ActionEvent event) {
+        // Implementasi untuk customers button action
+        MovieApplication.switchScene((Node) event.getSource(), "customers.fxml");
     }
 }
