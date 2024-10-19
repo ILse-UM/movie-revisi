@@ -90,7 +90,7 @@
                     <children>
                         <AnchorPane layoutX="3.0" layoutY="4.0" prefHeight="286.0" prefWidth="197.0">
                             <children>
-                                <Label fx:id="titleLabel" layoutX="72.0" layoutY="157.0" prefHeight="38.0" prefWidth="55.0" text="Label">
+                                <Label fx:id="titleLabel" layoutX="72.0" layoutY="157.0" prefHeight="38.0" prefWidth="55.0">
                                     <font>
                                         <Font name="System Bold" size="22.0" />
                                     </font>
@@ -114,8 +114,8 @@
                                 <Label layoutX="234.0" layoutY="77.0" text="Price" />
                                 <Label layoutX="38.0" layoutY="112.0" text="Normal Class :" />
                                 <Label layoutX="40.0" layoutY="147.0" text="Special Class :" />
-                                <Spinner id="jumlah_normal" fx:id="specialQuantity" layoutX="134.0" layoutY="143.0" prefHeight="25.0" prefWidth="46.0" />
-                                <Spinner id="jumlahspecial" fx:id="normalQuantity" layoutX="134.0" layoutY="108.0" prefHeight="25.0" prefWidth="46.0" />
+                                <Spinner id="jumlahspecial" fx:id="normalQuantity" editable="true" layoutX="134.0" layoutY="108.0" prefHeight="25.0" prefWidth="55.0" />
+                                <Spinner id="jumlah_normal" fx:id="specialQuantity" editable="true" layoutX="134.0" layoutY="143.0" prefHeight="25.0" prefWidth="55.0" />
                                 <Label fx:id="specialPrice" layoutX="239.0" layoutY="145.0" text="\$0" />
                                 <Label fx:id="normalPrice" layoutX="239.0" layoutY="111.0" text="\$0" />
                                 <Label layoutX="203.0" layoutY="177.0" text="Total:">

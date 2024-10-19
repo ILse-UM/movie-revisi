@@ -20,13 +20,13 @@ import java.time.LocalDate;
 public class ScreenController {
 
     @FXML
-    private TextField movieTitle, genre, duration, publishedDate, search;
+    private TextField search;
 
     @FXML
     private ImageView image, titleImage;
 
     @FXML
-    private Button importButton, insertButton, updateButton, deleteButton, clearButton;
+    private Label titleLabel;
 
     @FXML
     private ComboBox<String> boxLabel;
@@ -62,10 +62,7 @@ public class ScreenController {
     }
 
     private void displaySelectedMovie(Movie movie) {
-        movieTitle.setText(movie.getTitle());
-        genre.setText(movie.getGenre());
-        duration.setText(String.valueOf(movie.getDuration()));
-        publishedDate.setText(movie.getShowingDate().toString());
+        titleLabel.setText(movie.getTitle());
         titleImage.setImage(new Image(movie.getImage()));
         boxLabel.setValue(movie.getCurrent()); // Set ComboBox to the current status of the movie
     }
@@ -77,7 +74,6 @@ public class ScreenController {
             Movie selectedMovie = tableView.getSelectionModel().getSelectedItem();
             if (selectedMovie != null) {
                 selectedMovie.setCurrent(selectedValue);
-                tableView.refresh(); // Refresh the table to show the updated current status
                 FileUtil.saveMoviesToFile(movieList); // Save updated movie list to file
             }
         }
@@ -87,14 +83,10 @@ public class ScreenController {
     private void handleUpdate(ActionEvent event) {
         Movie selectedMovie = tableView.getSelectionModel().getSelectedItem();
         if (selectedMovie != null) {
-            selectedMovie.setTitle(movieTitle.getText());
-            selectedMovie.setGenre(genre.getText());
-            selectedMovie.setDuration(Integer.parseInt(duration.getText()));
-            selectedMovie.setShowingDate(LocalDate.parse(publishedDate.getText()));
-            selectedMovie.setImage(titleImage.getImage().getUrl());
             selectedMovie.setCurrent(boxLabel.getValue()); // Update the current property based on ComboBox value
 
             tableView.refresh();
+            FileUtil.deleteMovieFromFile(selectedMovie.getTitle());
             FileUtil.saveMoviesToFile(movieList);
             clearFields();
         } else {
@@ -126,10 +118,7 @@ public class ScreenController {
     }
 
     private void clearFields() {
-        movieTitle.clear();
-        genre.clear();
-        duration.clear();
-        publishedDate.clear();
+        titleLabel.setText("");
         titleImage.setImage(null);
         boxLabel.setValue(null); // Clear ComboBox selection
     }

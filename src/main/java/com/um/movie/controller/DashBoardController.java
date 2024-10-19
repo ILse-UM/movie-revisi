@@ -4,18 +4,15 @@ import com.um.movie.MovieApplication;
 import com.um.movie.model.Movie;
 import com.um.movie.model.Ticket;
 import com.um.movie.util.FileUtil;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.util.Duration;
-
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class DashBoardController {
@@ -30,28 +27,35 @@ public class DashBoardController {
     private Label moviesLabel;
 
     @FXML
-    private ImageView carousel;
-
-    private List<String> imagePaths;  // Daftar path gambar untuk carousel
-    private int currentImageIndex = 0;
-    private Timeline carouselTimeline;
+    private ImageView movieImage;
 
     @FXML
     public void initialize() {
-        // Inisialisasi gambar-gambar yang akan ditampilkan dalam carousel
-        imagePaths = loadImagePaths();
+        //membuat gambar film random dari yang masih tayang
+        List<String> images = FileUtil.loadMoviesFromFile().stream()
+                .filter(movie -> (movie.getCurrent() == "Showing"))
+                .map(Movie::getImage)
+                .collect(Collectors.toList());
+        // mengambil data image acak dari film yang masih berstatus showing
+        randomImage(images);
 
-        if (!imagePaths.isEmpty()) {
-            // Menampilkan gambar pertama pada ImageView
-            updateCarouselImage();
-            // Memulai timeline untuk mengganti gambar setiap 3 detik (3000 ms)
-            startCarousel();
-        }
-
-        // update data 3 box diatas carousel
+        //update 3 data diatas gambar film
         updateDashboard();
     }
 
+    private void randomImage(List<String> images){
+        // Memeriksa apakah daftar tidak kosong
+        if (!images.isEmpty()) {
+            Random random = new Random();
+            int randomIndex = random.nextInt(images.size()); // Mendapatkan indeks acak
+            String randomImage = images.get(randomIndex); // Mengambil gambar menggunakan indeks acak
+
+            movieImage.setImage(new Image(randomImage));
+        } else {
+            movieImage.setImage(new Image(MovieApplication.class.getResourceAsStream("no-movie-icon.png")));
+        }
+
+    }
     private void updateDashboard() {
         List<Ticket> tickets = FileUtil.loadTicketsFromFile();
 
@@ -69,36 +73,6 @@ public class DashBoardController {
         int movieCount = FileUtil.loadMoviesFromFile().size();
         moviesLabel.setText(String.valueOf(movieCount));
     }
-
-    private List<String> loadImagePaths() {
-        // Daftar path gambar yang akan digunakan di carousel, bisa diambil dari file atau resource
-        List<String> imagePaths = FileUtil.loadMoviesFromFile().stream()
-                        .map(Movie::getImage)
-                                .collect(Collectors.toList());
-        return imagePaths;
-    }
-
-    private void updateCarouselImage() {
-        // Mengubah gambar yang ditampilkan di ImageView
-        if (!imagePaths.isEmpty()) {
-            String imagePath = imagePaths.get(currentImageIndex);
-            Image image = new Image(imagePath);
-            carousel.setImage(image);
-        }
-    }
-
-    private void startCarousel() {
-        carouselTimeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
-            // Increment indeks gambar saat ini
-            currentImageIndex = (currentImageIndex + 1) % imagePaths.size();
-            // Update gambar di ImageView
-            updateCarouselImage();
-        }));
-        carouselTimeline.setCycleCount(Timeline.INDEFINITE);  // Agar terus berjalan
-        carouselTimeline.play();
-    }
-
-
 
     // method dibawah ini merupakan penerapan dari tombol navigasi sebelah kiri
     @FXML

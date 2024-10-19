@@ -93,9 +93,10 @@ public class MovieController {
             selectedMovie.setShowingDate(LocalDate.parse(publishedDate.getText()));
             selectedMovie.setImage(titleImage.getImage().getUrl());
 
-            tableView.refresh();
+            FileUtil.deleteMovieFromFile(movieTitle.getText());
             FileUtil.saveMoviesToFile(movieList);
             clearFields();
+            tableView.refresh();
         } else {
             showAlert("Error", "No movie selected.", Alert.AlertType.ERROR);
         }
@@ -106,8 +107,9 @@ public class MovieController {
         Movie selectedMovie = tableView.getSelectionModel().getSelectedItem();
         if (selectedMovie != null) {
             movieList.remove(selectedMovie);
-            FileUtil.saveMoviesToFile(movieList);
+            FileUtil.deleteMovieFromFile(selectedMovie.getTitle());
             clearFields();
+            tableView.refresh();
         } else {
             showAlert("Error", "No movie selected.", Alert.AlertType.ERROR);
         }
