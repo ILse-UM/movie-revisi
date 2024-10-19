@@ -20,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.22867892976588633, 0.4795150501672241" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23">
+<SplitPane dividerPositions="0.22867892976588633, 0.4795150501672241" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.movie.controller.ScreenController">
   <items>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -53,10 +53,10 @@
       </AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <ImageView fx:id="image1" fitHeight="168.0" fitWidth="164.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="titleImage" fitHeight="168.0" fitWidth="164.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="titleLabel" layoutX="84.0" layoutY="182.0" text="Title" />
-            <ComboBox fx:id="boxLabel" editable="true" layoutX="72.0" layoutY="217.0" onAction="#handleBox" prefHeight="25.0" prefWidth="110.0" promptText="Choose">
-               <items>
+            <ComboBox fx:id="boxLabel" layoutX="72.0" layoutY="217.0" onAction="#handleBox" prefHeight="25.0" prefWidth="110.0" promptText="Choose">
+            <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="Showing" />
                      <String fx:value="End Showing" />

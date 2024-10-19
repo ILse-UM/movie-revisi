@@ -70,6 +70,6 @@ public class Movie {
     }
 
     public void setCurrent(String current) {
-        Current = current;
+        this.Current = current;
     }
 }
