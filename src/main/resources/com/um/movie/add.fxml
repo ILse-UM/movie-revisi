@@ -8,64 +8,107 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.22742474916387964, 0.4795150501672241" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.movie.controller.MovieController">
+<SplitPane dividerPositions="0.22742474916387964, 0.48704013377926425" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.movie.controller.MovieController">
   <items>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="251.0">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="251.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
          <children>
             <ImageView fx:id="image" fitHeight="100.0" fitWidth="100.0" layoutX="38.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="55.0" layoutY="114.0" text="Welcome">
+            <Label layoutX="56.0" layoutY="118.0" text="Welcome">
                <font>
                   <Font name="Dubai Medium" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="61.0" layoutY="134.0" text="admin">
+            <Label layoutX="61.0" layoutY="134.0" text="Admin">
                <font>
-                  <Font name="Dutch 801 Bold BT" size="19.0" />
+                  <Font name="Dubai Medium" size="19.0" />
                </font>
             </Label>
-            <VBox layoutX="1.0" layoutY="164.0">
+            <VBox layoutY="169.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
                <children>
-                  <ToggleButton fx:id="dashboardButton" mnemonicParsing="false" onAction="#handleDashBoard" prefHeight="31.0" prefWidth="175.0" text=" DashBoard">
+                  <ToggleButton fx:id="dashboardButton" mnemonicParsing="false" onAction="#handleDashBoard" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text=" DashBoard">
                      <toggleGroup>
                         <ToggleGroup fx:id="menu" />
                      </toggleGroup>
                   </ToggleButton>
-                  <ToggleButton fx:id="moviesButton" mnemonicParsing="false" onAction="#handleMovies" prefHeight="31.0" prefWidth="175.0" text="Movies" toggleGroup="$menu" />
-                  <ToggleButton fx:id="availableButton" mnemonicParsing="false" onAction="#handleAvailable" prefHeight="31.0" prefWidth="175.0" text="Available Movies" textFill="WHITE" toggleGroup="$menu" />
-                  <ToggleButton fx:id="screenButton" mnemonicParsing="false" onAction="#handleScreen" prefHeight="31.0" prefWidth="175.0" text="Edit Screening" toggleGroup="$menu" />
-                  <ToggleButton fx:id="customerButton" layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#handleCustomer" prefHeight="31.0" prefWidth="175.0" text="Customers" toggleGroup="$menu" />
+                  <ToggleButton fx:id="moviesButton" mnemonicParsing="false" onAction="#handleMovies" prefHeight="31.0" prefWidth="175.0" selected="true" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text="Movies" toggleGroup="$menu" />
+                  <ToggleButton fx:id="availableButton" mnemonicParsing="false" onAction="#handleAvailable" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text="Available Movies" toggleGroup="$menu" />
+                  <ToggleButton fx:id="screenButton" mnemonicParsing="false" onAction="#handleScreen" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text="Edit Screening" toggleGroup="$menu" />
+                  <ToggleButton fx:id="customerButton" layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#handleCustomer" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text="Customers" toggleGroup="$menu" />
                </children>
             </VBox>
-            <Button layoutX="12.0" layoutY="351.0" mnemonicParsing="false" text="Sign Out" />
+            <Button layoutX="12.0" layoutY="351.0" mnemonicParsing="false" style="-fx-background-color: #a3c1e0; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Sign Out">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect></Button>
          </children>
       </AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="271.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="271.0" style="-fx-background-color: white;">
          <children>
             <ImageView id="image" fx:id="titleImage" fitHeight="127.0" fitWidth="89.0" layoutX="59.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="48.0" />
-            <Button id="importButton" fx:id="importButton" mnemonicParsing="false" onAction="#handleImport" text="Import" />
-            <Label layoutX="14.0" layoutY="186.0" text="Movie Title:" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="126.0" AnchorPane.topAnchor="186.0" />
-            <TextField id="movieTitle" fx:id="movieTitle" layoutX="88.0" layoutY="182.0" prefHeight="25.0" prefWidth="103.0" promptText="judul" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="182.0" />
-            <Label layoutX="14.0" layoutY="221.0" text="Genre:" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="152.66666666666669" AnchorPane.topAnchor="221.0" />
-            <TextField id="genre" fx:id="genre" layoutX="88.0" layoutY="217.0" prefHeight="25.0" prefWidth="103.0" promptText="genre" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="217.0" />
-            <Label layoutX="14.0" layoutY="256.0" text="Duration:" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="138.0" AnchorPane.topAnchor="256.0" />
-            <TextField id="duration" fx:id="duration" layoutX="88.0" layoutY="252.0" prefHeight="25.0" prefWidth="103.0" promptText="menit" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="252.0" />
-            <Label layoutX="11.0" layoutY="291.0" prefHeight="17.0" prefWidth="103.0" text="Published Date:" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="87.00000000000001" AnchorPane.topAnchor="291.0" />
-            <TextField id="publishedDate" fx:id="publishedDate" layoutX="88.0" layoutY="287.0" prefHeight="25.0" prefWidth="103.0" promptText="YYYY-MM-DD" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="287.0" />
-            <Button id="insertButton" mnemonicParsing="false" onAction="#handleInsert" prefHeight="25.0" prefWidth="80.0" text="Insert" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="103.0" />
-            <Button id="updateButton" layoutX="103.33333333333333" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="25.0" prefWidth="80.0" text="Update" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="18.0" />
-            <Button id="DeleteButton" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="80.0" text="Delete" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="103.0" />
-            <Button id="clearButton" layoutX="103.33333333333333" mnemonicParsing="false" onAction="#handleClear" prefHeight="25.0" prefWidth="80.0" text="Clear" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="18.0" />
+            <Button id="importButton" fx:id="importButton" layoutX="4.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleImport" style="-fx-background-color: lightblue;" text="Import">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect></Button>
+            <Label layoutX="14.0" layoutY="186.0" text="Movie Title:" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="126.0" AnchorPane.topAnchor="186.0">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="12.0" />
+               </font></Label>
+            <TextField id="movieTitle" fx:id="movieTitle" layoutX="88.0" layoutY="182.0" prefHeight="25.0" prefWidth="103.0" promptText="judul" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="182.0">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect></TextField>
+            <Label layoutX="14.0" layoutY="222.0" prefHeight="17.0" prefWidth="38.0" text="Genre:" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="149.0" AnchorPane.topAnchor="222.0">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="12.0" />
+               </font></Label>
+            <TextField id="genre" fx:id="genre" layoutX="88.0" layoutY="217.0" prefHeight="25.0" prefWidth="103.0" promptText="genre" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="217.0">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect></TextField>
+            <Label layoutX="14.0" layoutY="256.0" text="Duration:" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="138.0" AnchorPane.topAnchor="256.0">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="12.0" />
+               </font></Label>
+            <TextField id="duration" fx:id="duration" layoutX="88.0" layoutY="252.0" prefHeight="25.0" prefWidth="103.0" promptText="menit" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="252.0">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect></TextField>
+            <Label layoutX="11.0" layoutY="291.0" prefHeight="17.0" prefWidth="89.0" text="Published Date:" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="98.0" AnchorPane.topAnchor="291.0">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="12.0" />
+               </font></Label>
+            <TextField id="publishedDate" fx:id="publishedDate" layoutX="88.0" layoutY="287.0" prefHeight="25.0" prefWidth="103.0" promptText="YYYY-MM-DD" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="287.0">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect></TextField>
+            <Button id="insertButton" mnemonicParsing="false" onAction="#handleInsert" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: aqua;" text="Insert" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="103.0">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect></Button>
+            <Button id="updateButton" layoutX="103.33333333333333" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: lightblue;" text="Update" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="18.0">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect></Button>
+            <Button id="DeleteButton" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #F95454;" text="Delete" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="103.0">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect></Button>
+            <Button id="clearButton" layoutX="103.33333333333333" mnemonicParsing="false" onAction="#handleClear" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #77CDFF;" text="Clear" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="18.0">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect></Button>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="397.0" prefWidth="367.0">
+      <AnchorPane prefHeight="397.0" prefWidth="367.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
          <children>
-            <TextField id="search" fx:id="search" layoutX="14.0" layoutY="14.0" onAction="#handleSearch" prefHeight="25.0" prefWidth="140.0" promptText="search" />
-            <TableView fx:id="tableView" layoutX="9.0" layoutY="49.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="336.0" prefWidth="397.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="6.0">
+            <TextField id="search" fx:id="search" layoutX="9.0" layoutY="14.0" onAction="#handleSearch" prefHeight="25.0" prefWidth="140.0" promptText="search" />
+            <TableView fx:id="tableView" layoutX="9.0" layoutY="49.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="341.0" prefWidth="391.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="6.0">
               <columns>
                 <TableColumn fx:id="titleColumn" prefWidth="99.0" text="Movie Title" />
                 <TableColumn fx:id="genreColumn" prefWidth="99.0" text="Genre" />

@@ -4,24 +4,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.movie.controller.SignInController">
    <children>
-      <AnchorPane layoutX="81.0" layoutY="54.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="81.0" layoutY="54.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="259.0" layoutY="104.0" text="Sign In">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="259.0" layoutY="104.0" text="Sign In" AnchorPane.leftAnchor="258.66666666666663" AnchorPane.rightAnchor="258.3333333333333">
                <font>
                   <Font name="Berlin Sans FB" size="30.0" />
                </font>
             </Label>
-            <TextField fx:id="username" layoutX="200.0" layoutY="162.0" prefHeight="30.0" prefWidth="200.0" promptText="Username" />
-            <PasswordField fx:id="password" layoutX="200.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" />
-            <Button fx:id="loginButton" layoutX="248.0" layoutY="248.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="43.0" prefWidth="103.0" text="Login">
+            <TextField fx:id="username" layoutX="200.0" layoutY="162.0" prefHeight="30.0" prefWidth="200.0" promptText="Username" style="-fx-border-radius: 8px; -fx-background-radius: 8px; -fx-border-color: grey;" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" />
+            <PasswordField fx:id="password" layoutX="200.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 8px; -fx-border-radius: 8px; -fx-border-color: grey;" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" />
+            <Button fx:id="loginButton" layoutX="242.0" layoutY="248.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="43.0" prefWidth="117.0" style="-fx-background-color: #a3c1e0; -fx-background-radius: 8px; -fx-border-radius: 8px;" text="Login" AnchorPane.leftAnchor="242.0" AnchorPane.rightAnchor="241.33333333333337">
                <font>
                   <Font name="Microsoft Sans Serif" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
+               </effect>
             </Button>
          </children>
       </AnchorPane>
