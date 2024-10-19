@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.22742474916387964, 0.48704013377926425" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.movie.controller.MovieController">
+<SplitPane dividerPositions="0.2224080267558529, 0.48704013377926425" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.movie.controller.MovieController">
   <items>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="251.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
          <children>
             <ImageView fx:id="image" fitHeight="100.0" fitWidth="100.0" layoutX="38.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="56.0" layoutY="118.0" text="Welcome">
@@ -29,7 +29,7 @@
                   <Font name="Dubai Medium" size="19.0" />
                </font>
             </Label>
-            <VBox layoutY="169.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
+            <VBox layoutX="-1.0" layoutY="169.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
                <children>
                   <ToggleButton fx:id="dashboardButton" mnemonicParsing="false" onAction="#handleDashBoard" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text=" DashBoard">
                      <toggleGroup>
