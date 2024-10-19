@@ -49,13 +49,13 @@
             <ImageView id="image" fx:id="titleImage" fitHeight="127.0" fitWidth="89.0" layoutX="59.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="48.0" />
             <Button id="importButton" fx:id="importButton" mnemonicParsing="false" onAction="#handleImport" text="Import" />
             <Label layoutX="14.0" layoutY="186.0" text="Movie Title:" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="126.0" AnchorPane.topAnchor="186.0" />
-            <TextField id="movieTitle" fx:id="movieTitle" layoutX="88.0" layoutY="182.0" prefHeight="25.0" prefWidth="103.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="182.0" />
+            <TextField id="movieTitle" fx:id="movieTitle" layoutX="88.0" layoutY="182.0" prefHeight="25.0" prefWidth="103.0" promptText="judul" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="182.0" />
             <Label layoutX="14.0" layoutY="221.0" text="Genre:" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="152.66666666666669" AnchorPane.topAnchor="221.0" />
-            <TextField id="genre" fx:id="genre" layoutX="88.0" layoutY="217.0" prefHeight="25.0" prefWidth="103.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="217.0" />
+            <TextField id="genre" fx:id="genre" layoutX="88.0" layoutY="217.0" prefHeight="25.0" prefWidth="103.0" promptText="genre" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="217.0" />
             <Label layoutX="14.0" layoutY="256.0" text="Duration:" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="138.0" AnchorPane.topAnchor="256.0" />
-            <TextField id="duration" fx:id="duration" layoutX="88.0" layoutY="252.0" prefHeight="25.0" prefWidth="103.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="252.0" />
+            <TextField id="duration" fx:id="duration" layoutX="88.0" layoutY="252.0" prefHeight="25.0" prefWidth="103.0" promptText="menit" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="252.0" />
             <Label layoutX="11.0" layoutY="291.0" prefHeight="17.0" prefWidth="103.0" text="Published Date:" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="87.00000000000001" AnchorPane.topAnchor="291.0" />
-            <TextField id="publishedDate" fx:id="publishedDate" layoutX="88.0" layoutY="287.0" prefHeight="25.0" prefWidth="103.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="287.0" />
+            <TextField id="publishedDate" fx:id="publishedDate" layoutX="88.0" layoutY="287.0" prefHeight="25.0" prefWidth="103.0" promptText="YYYY-MM-DD" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="287.0" />
             <Button id="insertButton" mnemonicParsing="false" onAction="#handleInsert" prefHeight="25.0" prefWidth="80.0" text="Insert" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="103.0" />
             <Button id="updateButton" layoutX="103.33333333333333" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="25.0" prefWidth="80.0" text="Update" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="18.0" />
             <Button id="DeleteButton" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="80.0" text="Delete" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="103.0" />
@@ -64,8 +64,8 @@
       </AnchorPane>
       <AnchorPane prefHeight="397.0" prefWidth="367.0">
          <children>
-            <TextField id="search" fx:id="search" layoutX="14.0" layoutY="14.0" onAction="#handleSearch" prefHeight="25.0" prefWidth="52.0" />
-            <TableView fx:id="tableView" layoutX="75.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="371.0" prefWidth="331.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="6.0">
+            <TextField id="search" fx:id="search" layoutX="14.0" layoutY="14.0" onAction="#handleSearch" prefHeight="25.0" prefWidth="140.0" promptText="search" />
+            <TableView fx:id="tableView" layoutX="9.0" layoutY="49.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="336.0" prefWidth="397.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="6.0">
               <columns>
                 <TableColumn fx:id="titleColumn" prefWidth="99.0" text="Movie Title" />
                 <TableColumn fx:id="genreColumn" prefWidth="99.0" text="Genre" />

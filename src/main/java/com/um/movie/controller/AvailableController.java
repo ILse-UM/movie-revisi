@@ -75,38 +75,45 @@ public class AvailableController {
 
     @FXML
     public void initialize() {
+
+        // Set value factory for normal quantity Spinner (e.g. range from 0 to 10)
+        SpinnerValueFactory<Integer> normalFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 50, 1);
+        normalQuantity.setValueFactory(normalFactory);
+
+        // Set value factory for special quantity Spinner (e.g. range from 0 to 5)
+        SpinnerValueFactory<Integer> specialFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 50, 1);
+        specialQuantity.setValueFactory(specialFactory);
+
         // Initialize table columns with movie data properties
         titleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTitle()));
         genreColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getGenre()));
         dateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getShowingDate().toString()));
 
-        // Initialize sample movie list
-        movieList = FXCollections.observableArrayList(
-                new Movie("Inception", "Sci-Fi", 148, LocalDate.of(2010, 7, 16), "path/to/image1.jpg"),
-                new Movie("Avatar", "Action", 162, LocalDate.of(2009, 12, 18), "path/to/image2.jpg"),
-                new Movie("Titanic", "Romance", 195, LocalDate.of(1997, 12, 19), "path/to/image3.jpg")
-        );
-
-        // Populate the table with movie data
+        movieList = FXCollections.observableArrayList(FileUtil.loadMoviesFromFile());
         tableView.setItems(movieList);
 
         // Spinner configuration for ticket quantities
         normalQuantity.valueProperty().addListener((obs, oldValue, newValue) -> updateTotalPrice());
         specialQuantity.valueProperty().addListener((obs, oldValue, newValue) -> updateTotalPrice());
 
+        tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> handleRowClick());
     }
 
+    public void handleRowClick(){
+        Movie selectedMovie = tableView.getSelectionModel().getSelectedItem();
+        if(selectedMovie != null){
+            // Update the text fields with selected movie data
+            titleTextField.setText(selectedMovie.getTitle());
+            genreTextField.setText(selectedMovie.getGenre());
+            dateTextField.setText(selectedMovie.getShowingDate().toString());
+        }
+    }
     @FXML
     private void selectMovie() {
         // Get selected movie from the table
         Movie selectedMovie = tableView.getSelectionModel().getSelectedItem();
 
         if (selectedMovie != null) {
-            // Update the text fields with selected movie data
-            titleTextField.setText(selectedMovie.getTitle());
-            genreTextField.setText(selectedMovie.getGenre());
-            dateTextField.setText(selectedMovie.getShowingDate().toString());
-
             // Update the image and label
             titleLabel.setText(selectedMovie.getTitle());
             image.setImage(new Image(selectedMovie.getImage()));  // Assuming a valid image path
