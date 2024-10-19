@@ -23,7 +23,7 @@ public class MovieController {
     private TextField movieTitle, genre, duration, publishedDate, search;
 
     @FXML
-    private ImageView image, titleImage;
+    private ImageView admin, titleImage;
 
     @FXML
     private Button importButton, insertButton, updateButton, deleteButton, clearButton;
@@ -38,6 +38,9 @@ public class MovieController {
 
     @FXML
     public void initialize() {
+        //set admin image
+        admin.setImage(new Image(MovieApplication.class.getResourceAsStream("admin.png")));
+
         // Initialize table columns
         titleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTitle()));
         genreColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getGenre()));
@@ -192,5 +195,11 @@ public class MovieController {
     private void handleCustomer(ActionEvent event) {
         // Implementasi untuk customers button action
         MovieApplication.switchScene((Node) event.getSource(), "customers.fxml");
+    }
+
+    @FXML
+    private void handleSignOut(ActionEvent event) {
+        // Implementasi untuk sign out, misalnya kembali ke halaman login
+        MovieApplication.switchScene((Node) event.getSource(), "login.fxml");
     }
 }
