@@ -1,96 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.22867892976588633, 0.4795150501672241" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.movie.controller.ScreenController">
+<SplitPane dividerPositions="0.22366220735785958, 0.4795150501672241" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.um.movie.controller.ScreenController">
   <items>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
          <children>
-            <ImageView fx:id="image" fitHeight="100.0" fitWidth="100.0" layoutX="38.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="55.0" layoutY="114.0" text="Welcome">
+            <ImageView fx:id="admin" fitHeight="100.0" fitWidth="100.0" layoutX="38.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="55.0" layoutY="118.0" text="Welcome">
                <font>
                   <Font name="Dubai Medium" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="61.0" layoutY="134.0" text="admin">
+            <Label layoutX="61.0" layoutY="134.0" text="Admin">
                <font>
-                  <Font name="Dutch 801 Bold BT" size="19.0" />
+                  <Font name="Dubai Medium" size="19.0" />
                </font>
             </Label>
-            <VBox layoutX="1.0" layoutY="164.0">
+            <VBox layoutX="-1.0" layoutY="169.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
                <children>
-                  <ToggleButton fx:id="dashboardButton" mnemonicParsing="false" onAction="#handleDashBoard" prefHeight="31.0" prefWidth="175.0" text=" DashBoard">
+                  <ToggleButton fx:id="dashboardButton" mnemonicParsing="false" onAction="#handleDashBoard" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text=" DashBoard">
                      <toggleGroup>
                         <ToggleGroup fx:id="menu" />
                      </toggleGroup>
                   </ToggleButton>
-                  <ToggleButton fx:id="moviesButton" mnemonicParsing="false" onAction="#handleMovies" prefHeight="31.0" prefWidth="175.0" text="Movies" toggleGroup="$menu" />
-                  <ToggleButton fx:id="availableButton" mnemonicParsing="false" onAction="#handleAvailable" prefHeight="31.0" prefWidth="175.0" text="Available Movies" textFill="WHITE" toggleGroup="$menu" />
-                  <ToggleButton fx:id="screenButton" mnemonicParsing="false" onAction="#handleScreen" prefHeight="31.0" prefWidth="175.0" text="Edit Screening" toggleGroup="$menu" />
-                  <ToggleButton fx:id="customerButton" layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#handleCustomer" prefHeight="31.0" prefWidth="175.0" text="Customers" toggleGroup="$menu" />
+                  <ToggleButton fx:id="moviesButton" mnemonicParsing="false" onAction="#handleMovies" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text="Movies" toggleGroup="$menu" />
+                  <ToggleButton fx:id="availableButton" mnemonicParsing="false" onAction="#handleAvailable" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text="Available Movies" toggleGroup="$menu" />
+                  <ToggleButton fx:id="screenButton" mnemonicParsing="false" onAction="#handleScreen" prefHeight="31.0" prefWidth="175.0" selected="true" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text="Edit Screening" toggleGroup="$menu" />
+                  <ToggleButton fx:id="customerButton" layoutX="10.0" layoutY="103.0" mnemonicParsing="false" onAction="#handleCustomer" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);" text="Customers" toggleGroup="$menu" />
                </children>
             </VBox>
-            <Button layoutX="12.0" layoutY="351.0" mnemonicParsing="false" text="Sign Out" />
+            <Button layoutX="12.0" layoutY="351.0" mnemonicParsing="false" onAction="#handleSignOut" style="-fx-background-color: #a3c1e0; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Sign Out">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect></Button>
          </children>
       </AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: white;">
          <children>
             <ImageView fx:id="titleImage" fitHeight="168.0" fitWidth="164.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="titleLabel" alignment="CENTER" layoutX="10.0" layoutY="182.0" prefHeight="17.0" prefWidth="175.0" textAlignment="CENTER" />
-            <ComboBox fx:id="boxLabel" layoutX="72.0" layoutY="217.0" onAction="#handleBox" prefHeight="25.0" prefWidth="110.0" promptText="Choose">
+            <Label fx:id="titleLabel" alignment="CENTER" layoutX="9.0" layoutY="182.0" prefHeight="17.0" prefWidth="175.0" textAlignment="CENTER">
+               <font>
+                  <Font name="Dubai Light" size="12.0" />
+               </font></Label>
+            <ComboBox fx:id="boxLabel" layoutX="72.0" layoutY="217.0" prefHeight="25.0" prefWidth="110.0" promptText="Choose" style="-fx-background-color: lightblue;">
             <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="Showing" />
                      <String fx:value="End Showing" />
                   </FXCollections>
                </items>
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect>
             </ComboBox>
-            <Text layoutX="14.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current">
+            <Text layoutX="14.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current:">
                <font>
                   <Font name="Microsoft Sans Serif" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="updateButton" layoutX="21.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="23.0" prefWidth="66.0" style="-fx-background-color: lightblue;" text="Update">
+            <Button fx:id="updateButton" alignment="CENTER" layoutX="21.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="23.0" prefWidth="66.0" style="-fx-background-color: lightblue;" text="Update">
                <font>
                   <Font name="Microsoft Sans Serif" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect>
             </Button>
-            <Button fx:id="clearButton" layoutX="107.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="23.0" prefWidth="66.0" style="-fx-background-color: aqua;" text="Clear">
+            <Button fx:id="clearButton" alignment="CENTER" layoutX="107.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="23.0" prefWidth="66.0" style="-fx-background-color: #77CDFF;" text="Clear">
                <font>
                   <Font name="Microsoft Sans Serif" size="12.0" />
                </font>
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0" />
+               </effect>
             </Button>
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to right, #85c1e9, #f5b7b1);">
          <children>
-            <TextField fx:id="search" layoutX="14.0" layoutY="14.0" onAction="#handleSearch" promptText="Search">
+            <TextField fx:id="search" layoutX="14.0" layoutY="14.0" onAction="#handleSearch" promptText="Search" style="-fx-background-color: white; -fx-border-radius: 5px; -fx-background-radius: 5px;">
                <effect>
-                  <DropShadow>
+                  <DropShadow height="10.0" radius="4.5" width="10.0">
                      <color>
                         <Color opacity="0.5229007601737976" />
                      </color>
                   </DropShadow>
                </effect>
             </TextField>
-            <TableView fx:id="tableView" layoutX="10.0" layoutY="65.0" prefHeight="317.0" prefWidth="392.0">
+            <TableView fx:id="tableView" layoutX="10.0" layoutY="65.0" prefHeight="324.0" prefWidth="392.0">
                <columns>
                   <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Movie Title" />
                   <TableColumn fx:id="genreColumn" prefWidth="100.66670989990234" text="Genre" />
