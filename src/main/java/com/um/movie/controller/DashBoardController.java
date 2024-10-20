@@ -26,13 +26,16 @@ public class DashBoardController {
     private Label moviesLabel;
 
     @FXML
-    private ImageView movieImage;
+    private ImageView movieImage, admin;
 
     @FXML
     public void initialize() {
+        //set admin image
+        admin.setImage(new Image(MovieApplication.class.getResourceAsStream("admin.png")));
+
         //membuat gambar film random dari yang masih tayang
         List<String> images = FileUtil.loadMoviesFromFile().stream()
-                .filter(movie -> (movie.getCurrent() == "Showing"))
+                .filter(movie -> (movie.getCurrent().equals("Showing")))
                 .map(Movie::getImage)
                 .collect(Collectors.toList());
         // mengambil data image acak dari film yang masih berstatus showing

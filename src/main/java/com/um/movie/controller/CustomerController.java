@@ -11,6 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class CustomerController {
     @FXML
@@ -24,6 +26,8 @@ public class CustomerController {
     @FXML
     private TableColumn<Ticket, String> timeColumn;
 
+    @FXML
+    private ImageView admin;
     @FXML
     private TextField ticketNumTextField;
     @FXML
@@ -41,6 +45,8 @@ public class CustomerController {
 
     @FXML
     public void initialize() {
+        //set admin image
+        admin.setImage(new Image(MovieApplication.class.getResourceAsStream("admin.png")));
         // pick up data from file that already created before
         ticketList.setAll(FileUtil.loadTicketsFromFile());
         tableView.setItems(ticketList);
@@ -60,7 +66,7 @@ public class CustomerController {
             return true;
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Total harus berupa angka.");
+            alert.setContentText("Terdapat kesalahan pada input data");
             alert.show();
             return false;
         }
@@ -166,5 +172,11 @@ public class CustomerController {
     private void handleCustomer(ActionEvent event) {
         // Implementasi untuk customers button action
         MovieApplication.switchScene((Node) event.getSource(), "customers.fxml");
+    }
+
+    @FXML
+    private void handleSignOut(ActionEvent event) {
+        // Implementasi untuk sign out, misalnya kembali ke halaman login
+        MovieApplication.switchScene((Node) event.getSource(), "login.fxml");
     }
 }

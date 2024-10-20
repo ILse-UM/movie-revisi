@@ -19,7 +19,7 @@ public class ScreenController {
     private TextField search;
 
     @FXML
-    private ImageView image, titleImage;
+    private ImageView admin, titleImage;
 
     @FXML
     private Label titleLabel;
@@ -37,6 +37,9 @@ public class ScreenController {
 
     @FXML
     public void initialize() {
+        //set admin image
+        admin.setImage(new Image(MovieApplication.class.getResourceAsStream("admin.png")));
+
         // Initialize table columns
         titleColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTitle()));
         genreColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getGenre()));
@@ -53,26 +56,12 @@ public class ScreenController {
                 displaySelectedMovie(newSelection);
             }
         });
-
-        boxLabel.getItems().addAll("Showing", "End SHowing");
     }
 
     private void displaySelectedMovie(Movie movie) {
         titleLabel.setText(movie.getTitle());
         titleImage.setImage(new Image(movie.getImage()));
         boxLabel.setValue(movie.getCurrent()); // Set ComboBox to the current status of the movie
-    }
-
-    @FXML
-    private void handleBox(ActionEvent event) {
-        String selectedValue = boxLabel.getValue();
-        if (selectedValue != null) {
-            Movie selectedMovie = tableView.getSelectionModel().getSelectedItem();
-            if (selectedMovie != null) {
-                selectedMovie.setCurrent(selectedValue);
-                FileUtil.saveMoviesToFile(movieList); // Save updated movie list to file
-            }
-        }
     }
 
     @FXML
@@ -84,7 +73,6 @@ public class ScreenController {
             tableView.refresh();
             FileUtil.deleteMovieFromFile(selectedMovie.getTitle());
             FileUtil.saveMoviesToFile(movieList);
-            clearFields();
         } else {
             showAlert("Error", "No movie selected.", Alert.AlertType.ERROR);
         }
@@ -156,5 +144,11 @@ public class ScreenController {
     private void handleCustomer(ActionEvent event) {
         // Implementasi untuk customers button action
         MovieApplication.switchScene((Node) event.getSource(), "customers.fxml");
+    }
+
+    @FXML
+    private void handleSignOut(ActionEvent event) {
+        // Implementasi untuk sign out, misalnya kembali ke halaman login
+        MovieApplication.switchScene((Node) event.getSource(), "login.fxml");
     }
 }

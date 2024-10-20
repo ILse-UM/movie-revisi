@@ -43,7 +43,7 @@ public class AvailableController {
     private TextField dateTextField;
 
     @FXML
-    private ImageView image;
+    private ImageView image, admin;
 
     @FXML
     private Label titleLabel;
@@ -70,13 +70,15 @@ public class AvailableController {
 
     @FXML
     public void initialize() {
+        //set admin image
+        admin.setImage(new Image(MovieApplication.class.getResourceAsStream("admin.png")));
 
         // Set value factory for normal quantity Spinner (e.g. range from 0 to 10)
-        SpinnerValueFactory<Integer> normalFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 50, 1);
+        SpinnerValueFactory<Integer> normalFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 50, 0);
         normalQuantity.setValueFactory(normalFactory);
 
         // Set value factory for special quantity Spinner (e.g. range from 0 to 5)
-        SpinnerValueFactory<Integer> specialFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 50, 1);
+        SpinnerValueFactory<Integer> specialFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 50, 0);
         specialQuantity.setValueFactory(specialFactory);
 
         // Initialize table columns with movie data properties
@@ -92,6 +94,7 @@ public class AvailableController {
         specialQuantity.valueProperty().addListener((obs, oldValue, newValue) -> updateTotalPrice());
 
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> handleRowClick());
+
     }
 
     public void handleRowClick(){
@@ -207,6 +210,11 @@ public class AvailableController {
         MovieApplication.switchScene((Node) event.getSource(), "customers.fxml");
     }
 
+    @FXML
+    private void handleSignOut(ActionEvent event) {
+        // Implementasi untuk sign out, misalnya kembali ke halaman login
+        MovieApplication.switchScene((Node) event.getSource(), "login.fxml");
+    }
 
 
 }
