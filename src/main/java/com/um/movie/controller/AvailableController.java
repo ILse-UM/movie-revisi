@@ -16,11 +16,6 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.Label;
 
 import com.um.movie.model.Movie;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 

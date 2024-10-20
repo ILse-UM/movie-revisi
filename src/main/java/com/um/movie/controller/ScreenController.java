@@ -12,10 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
-
-import java.io.File;
-import java.time.LocalDate;
 
 public class ScreenController {
 

@@ -4,7 +4,6 @@ import com.um.movie.MovieApplication;
 import com.um.movie.model.Movie;
 import com.um.movie.model.Ticket;
 import com.um.movie.util.FileUtil;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
