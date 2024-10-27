@@ -90,13 +90,13 @@ public class MovieController {
     private void handleUpdate(ActionEvent event) {
         Movie selectedMovie = tableView.getSelectionModel().getSelectedItem();
         if (selectedMovie != null) {
+            FileUtil.deleteMovieFromFile(selectedMovie.getTitle());
             selectedMovie.setTitle(movieTitle.getText());
             selectedMovie.setGenre(genre.getText());
             selectedMovie.setDuration(Integer.parseInt(duration.getText()));
             selectedMovie.setShowingDate(LocalDate.parse(publishedDate.getText()));
             selectedMovie.setImage(titleImage.getImage().getUrl());
 
-            FileUtil.deleteMovieFromFile(movieTitle.getText());
             FileUtil.saveMoviesToFile(movieList);
             clearFields();
             tableView.refresh();

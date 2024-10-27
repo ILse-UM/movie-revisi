@@ -42,7 +42,7 @@
       </AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="271.0" style="-fx-background-color: white;">
          <children>
-            <ImageView id="image" fx:id="titleImage" fitHeight="127.0" fitWidth="89.0" layoutX="59.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="48.0" />
+            <ImageView id="image" fx:id="titleImage" fitHeight="127.0" fitWidth="174.0" layoutX="16.0" layoutY="45.0" pickOnBounds="true" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" />
             <Button id="importButton" fx:id="importButton" layoutX="4.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleImport" style="-fx-background-color: lightblue;" text="Import">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
@@ -79,19 +79,19 @@
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect></TextField>
-            <Button id="insertButton" mnemonicParsing="false" onAction="#handleInsert" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: aqua;" text="Insert" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="103.0">
+            <Button id="insertButton" mnemonicParsing="false" onAction="#handleInsert" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: aqua;" text="Insert" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="116.0">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect></Button>
-            <Button id="updateButton" layoutX="103.33333333333333" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: lightblue;" text="Update" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="18.0">
+            <Button id="updateButton" layoutX="116.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: lightblue;" text="Update" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="18.0">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect></Button>
-            <Button id="DeleteButton" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #F95454;" text="Delete" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="103.0">
+            <Button id="DeleteButton" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #F95454;" text="Delete" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="116.0">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect></Button>
-            <Button id="clearButton" layoutX="103.33333333333333" mnemonicParsing="false" onAction="#handleClear" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #77CDFF;" text="Clear" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="18.0">
+            <Button id="clearButton" layoutX="116.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #77CDFF;" text="Clear" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="18.0">
                <effect>
                   <DropShadow height="5.0" radius="2.0" width="5.0" />
                </effect></Button>
